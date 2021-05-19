@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
-import { Button, TextField } from  '@material-ui/core'
+import { Box, Button, TextField, Typography } from  '@material-ui/core'
 import FindInPageOutlinedIcon from '@material-ui/icons/FindInPageOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -33,6 +33,7 @@ class SearchComponent extends Component{
         super(props)
         this.state = {
             open: false,
+            show_results: "false",
             search_string: "test",
         }
         this.handleSearchEvent = this.handleSearchEvent.bind(this)
@@ -40,7 +41,7 @@ class SearchComponent extends Component{
 
     handleSearchEvent = (event) => {
         event.preventDefault();
-        this.setState( { open: true });
+        this.setState( { open: true, show_results: "true" });
     };
 
     render() {
@@ -58,11 +59,34 @@ class SearchComponent extends Component{
                             startAdornment: <FindInPageOutlinedIcon />
                         }}
                         onChange={ event => {
-                            this.setState({ open: this.state.open, search_string: event.target.value })
+                            this.setState({ search_string: event.target.value })
                         }}
                         />
                 </form>
-                <Dialog
+                {
+                    this.state.open &&
+                    <Box mt={1} component="div">
+                        <Typography m={1} variant="h6">Results for "{this.state.search_string}"</Typography>
+                        <Box m={1} border={1}>
+                            <Typography mt={2} variant="body1"><b>Section #.#.##</b></Typography>
+                            <Typography mt={1} variant="body2">Description 1</Typography>
+                        </Box>
+                        <Box m={1} border={1}>
+                            <Typography mt={2} variant="body1"><b>Section #.#.##</b></Typography>
+                            <Typography mt={1} variant="body2">Description 2</Typography>
+                        </Box>
+                        <Box mt={2} mr={1}>
+                            <Button onClick={(event) => {
+                                this.setState( { open: false, show_results: "false" });
+                            }}
+                            color="primary"
+                            autofocus>
+                                Clear
+                            </Button>
+                        </Box>
+                    </Box>
+                }
+                {/* <Dialog
                     open={this.state.open}
                     aria-labelledby="search-alert-title"
                     aria-describedby="search-alert-description"
@@ -75,14 +99,14 @@ class SearchComponent extends Component{
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={(event) => {
-                            this.setState( { open: false });
+                            this.setState( { open: false, show_results: "false" });
                         }}
                         color="primary"
                         autofocus>
                             Okay
                         </Button>
                     </DialogActions>
-                </Dialog>
+                </Dialog> */}
             </div>
         );
     };
