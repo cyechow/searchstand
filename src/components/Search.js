@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
-import { Button, FormControl, Input, InputAdornment, InputLabel, TextField } from  '@material-ui/core'
+import { Button, TextField } from  '@material-ui/core'
 import FindInPageOutlinedIcon from '@material-ui/icons/FindInPageOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -49,7 +49,6 @@ class SearchComponent extends Component{
         return (
             <div className={classes.root} style={{marginTop: "2%"}}>
                 <form className={classes.form} onSubmit={this.handleSearchEvent}>
-                    <InputLabel htmlFor="input-with-icon-adornment"></InputLabel>
                     <TextField
                         id="search-input-field"
                         label="Search standards documentation"
