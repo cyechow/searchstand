@@ -32,6 +32,8 @@ class SearchComponent extends Component{
             search_string: "test",
         }
         this.handleSearchEvent = this.handleSearchEvent.bind(this)
+        this.handleSearchTextChange = this.handleSearchTextChange.bind(this)
+        this.clearResults = this.clearResults.bind(this)
     }
 
     handleSearchEvent = (event) => {
@@ -43,6 +45,18 @@ class SearchComponent extends Component{
     //     //this.state.search_string
     //     return ["Section1", "Section2", "Section3"]
     // }
+
+    handleSearchTextChange = (event) => {
+        this.setState({ search_string: event.target.value })
+        if (this.state.open)
+        {
+            this.clearResults(event)
+        }
+    };
+
+    clearResults = (event) => {
+        this.setState( { open: false, show_results: "false" });
+    }
 
     render() {
         const classes = useStyles;
@@ -58,9 +72,7 @@ class SearchComponent extends Component{
                         InputProps={{
                             startAdornment: <FindInPageOutlinedIcon />
                         }}
-                        onChange={ event => {
-                            this.setState({ search_string: event.target.value })
-                        }}
+                        onChange={this.handleSearchTextChange}
                         />
                 </form>
                 {
@@ -78,9 +90,7 @@ class SearchComponent extends Component{
                         <Box mt={2} mr={1}>
                             <Button variant="contained" color="primary"
                             startIcon={<ClearAllIcon />}
-                            onClick={(event) => {
-                                this.setState( { open: false, show_results: "false" });
-                            }}
+                            onClick={this.clearResults}
                             color="default"
                             autofocus>
                                 Clear
