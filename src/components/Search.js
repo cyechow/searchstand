@@ -82,10 +82,12 @@ class SearchComponent extends Component{
                         <Box m={1} p={1} border={1}>
                             <Typography mt={2} variant="body1"><b>Section #.#.##</b></Typography>
                             <Typography mt={1} variant="body2">Description 1</Typography>
+                            <Typography mt={1} variant="body2"><a href="https://www.arup.com">Link</a></Typography>
                         </Box>
                         <Box m={1} p={1} border={1}>
                             <Typography mt={2} variant="body1"><b>Section #.#.##</b></Typography>
                             <Typography mt={1} variant="body2">Description 2</Typography>
+                            <Typography mt={1} variant="body2"><a href="https://www.arup.com">Link</a></Typography>
                         </Box>
                         <Box mt={2} mr={1}>
                             <Button variant="contained" color="primary"
