@@ -39,6 +39,11 @@ class SearchComponent extends Component{
         this.setState( { open: true, show_results: "true" });
     };
 
+    // getSearchResults = () => {
+    //     //this.state.search_string
+    //     return ["Section1", "Section2", "Section3"]
+    // }
+
     render() {
         const classes = useStyles;
 
@@ -62,11 +67,11 @@ class SearchComponent extends Component{
                     this.state.open &&
                     <Box mt={1} component="div">
                         <Typography m={1} variant="h6">Results for "{this.state.search_string}"</Typography>
-                        <Box m={1} border={1}>
+                        <Box m={1} p={1} border={1}>
                             <Typography mt={2} variant="body1"><b>Section #.#.##</b></Typography>
                             <Typography mt={1} variant="body2">Description 1</Typography>
                         </Box>
-                        <Box m={1} border={1}>
+                        <Box m={1} p={1} border={1}>
                             <Typography mt={2} variant="body1"><b>Section #.#.##</b></Typography>
                             <Typography mt={1} variant="body2">Description 2</Typography>
                         </Box>
