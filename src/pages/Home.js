@@ -4,13 +4,12 @@ import {
     Typography,
 } from '@material-ui/core'
 
-//import SearchComponent from './../components/Search'
-import SearchBar from './../components/Search'
+import SearchComponent from './../components/Search'
 
 const Home = () => (
     <Container maxwidth="lg">
         <Typography variant="h4">Welcome to SearchStand!</Typography>
-        <SearchBar />
+        <SearchComponent />
     </Container>
 );
 

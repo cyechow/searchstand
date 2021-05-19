@@ -1,15 +1,15 @@
-import React from 'react'
-//import PropTypes from 'prop-types';
-//import { withStyles } from '@material-ui/styles';
-import { /*Button,*/ FormControl, Input, InputAdornment, InputLabel } from  '@material-ui/core'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/styles';
+import { Button, FormControl, Input, InputAdornment, InputLabel, TextField } from  '@material-ui/core'
 import FindInPageOutlinedIcon from '@material-ui/icons/FindInPageOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 
-//import Dialog from '@material-ui/core/Dialog';
-//import DialogActions from '@material-ui/core/DialogActions';
-//import DialogContent from '@material-ui/core/DialogContent';
-//import DialogContentText from '@material-ui/core/DialogContentText';
-//import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,56 +25,64 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
-    color: theme.palette.text.secondary,
   },
 }));
 
-/**
-class SearchComponent extends React.Component{
-    search_string = ""
+class SearchComponent extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            open: false,
+            search_string: "test",
+        }
+        this.handleSearchEvent = this.handleSearchEvent.bind(this)
+    }
 
     handleSearchEvent = (event) => {
-        this.search_string = event.target.value
+        event.preventDefault();
+        this.setState( { open: true });
     };
 
-
-
     render() {
-        const { classes } = this.props;
+        const classes = useStyles;
 
         return (
-            <div className={classes.root}>
-                <FormControl className={classes.margin} fullWidth="True">
+            <div className={classes.root} style={{marginTop: "2%"}}>
+                <form className={classes.form} onSubmit={this.handleSearchEvent}>
                     <InputLabel htmlFor="input-with-icon-adornment"></InputLabel>
-                    <Input
+                    <TextField
                         id="search-input-field"
                         label="Search standards documentation"
-                        startAdornment={
-                            <InputAdornment position="start">
-                                <FindInPageOutlinedIcon />
-                            </InputAdornment>
-                        }
-                        fullWidth="true"
-                        onChange={this.handleSearchEvent}
-                    />
-                </FormControl>
+                        variant='outlined'
+                        fullWidth
+                        InputProps={{
+                            startAdornment: <FindInPageOutlinedIcon />
+                        }}
+                        onChange={ event => {
+                            this.setState({ open: this.state.open, search_string: event.target.value })
+                        }}
+                        />
+                </form>
                 <Dialog
-                    //open={open}
+                    open={this.state.open}
                     aria-labelledby="search-alert-title"
-                    aria-aria-describedby="search-alert-description"
+                    aria-describedby="search-alert-description"
                 >
                     <DialogTitle>Searching standards database for...</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            this.search_string
+                            {this.state.search_string}
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
+                        <Button onClick={(event) => {
+                            this.setState( { open: false });
+                        }}
+                        color="primary"
+                        autofocus>
                             Okay
                         </Button>
                     </DialogActions>
-
                 </Dialog>
             </div>
         );
@@ -84,29 +92,5 @@ class SearchComponent extends React.Component{
 SearchComponent.propTypes = {
     classes: PropTypes.object.isRequired,
 }
-*/
 
-const SearchBar = () => {
-    const classes = useStyles();
-
-    return (
-        <div className={classes.root}>
-            <FormControl className={classes.margin} fullWidth="True">
-                <InputLabel htmlFor="input-with-icon-adornment"></InputLabel>
-                <Input
-                    id="search-input-field"
-                    label="Search standards documentation"
-                    startAdornment={
-                        <InputAdornment position="start">
-                            <FindInPageOutlinedIcon />
-                        </InputAdornment>
-                    }
-                    fullWidth="true"
-                />
-            </FormControl>
-        </div>
-    );
-}
-
-//export default withStyles(useStyles)(SearchComponent);
-export default SearchBar;
+export default withStyles(useStyles)(SearchComponent);

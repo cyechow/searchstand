@@ -6,6 +6,7 @@ import {
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import AppHeader from './components/AppHeader'
+import AppFooter from './components/AppFooter'
 import Home from './pages/Home'
 
 const theme = createMuiTheme({
@@ -38,6 +39,7 @@ const App = ({ classes }) => (
       <main className={classes.main}>
         <Home />
       </main>
+      <AppFooter />
     </Fragment>
   </ThemeProvider>
 );
