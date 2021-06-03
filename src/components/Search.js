@@ -80,14 +80,23 @@ class SearchComponent extends Component{
                     <Box mt={1} component="div">
                         <Typography m={1} variant="h6">Results for "{this.state.search_string}"</Typography>
                         <Box m={1} p={1} border={1}>
-                            <Typography mt={2} variant="body1"><b>Section #.#.##</b></Typography>
-                            <Typography mt={1} variant="body2">Description 1</Typography>
-                            <Typography mt={1} variant="body2"><a href="https://www.arup.com">Link</a></Typography>
+                            <Typography mt={2} variant="h5"><b>IBC2018P5</b></Typography>
+                            <Typography mt={2} variant="body1"><b>504.1 General</b></Typography>
+                            <Typography mt={1} variant="body2">
+                                The height, in feet, and the number of <i>stories</i> of a building shall be determined based on the type of construction, occupancy classification and whether there is an <i>automatic sprinkler system</i> installed throughout the building.
+                            </Typography>
+                            <Typography mt={1} variant="body2"><a href="https://codes.iccsafe.org/content/IBC2018P5/chapter-5-general-building-heights-and-areas#IBC2018P5_Ch05_Sec504.1" target="_blank" rel="noopener noreferrer">Link</a></Typography>
                         </Box>
                         <Box m={1} p={1} border={1}>
-                            <Typography mt={2} variant="body1"><b>Section #.#.##</b></Typography>
-                            <Typography mt={1} variant="body2">Description 2</Typography>
-                            <Typography mt={1} variant="body2"><a href="https://www.arup.com">Link</a></Typography>
+                            <Typography mt={2} variant="h5"><b>IBC2018P5</b></Typography>
+                            <Typography mt={2} variant="body1"><b>504.3 Height in feet</b></Typography>
+                            <Typography mt={1} variant="body2">
+                                The maximum height, in feet, of a building shall not exceed the limits specified in Table 504.3.
+                                <blockquote>
+                                    <b>Exception:</b> Towers, spires, steeples and other roof structures shall be constructed of materials consistent with the required type of construction of the building except where other construction is permitted by Section 1510.2.4. Such structures shall not be used for habitation or storage. The structures shall be unlimited in height where of noncombustible materials and shall not extend more than 20 feet (6096 mm) above the allowable building height where of combustible materials (see Chapter 15 for additional requirements).
+                                </blockquote>
+                            </Typography>
+                            <Typography mt={1} variant="body2"><a href="https://codes.iccsafe.org/content/IBC2018P5/chapter-5-general-building-heights-and-areas#IBC2018P5_Ch05_Sec504.3" target="_blank" rel="noopener noreferrer">Link</a></Typography>
                         </Box>
                         <Box mt={2} mr={1}>
                             <Button variant="contained" color="primary"
