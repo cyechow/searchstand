@@ -6,8 +6,9 @@ import {
     Toolbar,
     Typography,
 } from '@material-ui/core';
-
 import Logo from './logo.svg'
+
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 const AppHeader = () => (
     <AppBar position="static">
@@ -19,6 +20,7 @@ const AppHeader = () => (
             </Box>
             <Typography variant="h6" color="inherit">
                 SearchStand
+                <AccountBoxIcon fontSize="large"/>
             </Typography>
         </Toolbar>
     </AppBar>
