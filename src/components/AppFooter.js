@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Grid, Toolbar, Typography } from '@material-ui/core';
+import { Grid, Toolbar, Typography } from '@material-ui/core';
 import CopyrightIcon from '@material-ui/icons/Copyright';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
@@ -22,7 +22,7 @@ function AppFooter() {
     <div className={classes.root}>
         <Toolbar>
             <Grid
-                justify="space-between" // Add it here :)
+                justify="space-between"
                 container 
                 spacing={1}
             >
