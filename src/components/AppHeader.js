@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
     AppBar,
     Box,
-    IconButton,
     Icon,
+    Link,
     Toolbar,
     Typography,
 } from '@material-ui/core';
@@ -30,11 +30,11 @@ function AppHeader() {
         <AppBar position="fixed">
             <Toolbar>
                 <Box display='flex' flexGrow={1}>
-                    <IconButton href="">
+                    <Link href="#">
                         <Icon fontSize='large'>
                             <img src={Logo} height={32} width={32} />
                         </Icon>
-                    </IconButton>
+                    </Link>
                 </Box>
                 <Box display='flex' flexGrow={1}>
                     <Typography variant="h6" color="inherit">
@@ -43,9 +43,9 @@ function AppHeader() {
                 </Box>
                 
                 <Typography variant="body1" color="inherit">
-                    <IconButton color="secondary">
+                    <Link href="#">
                         <AccountBoxIcon fontSize="large"/>
-                    </IconButton>
+                    </Link>
                 </Typography>
             </Toolbar>
         </AppBar>
