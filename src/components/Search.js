@@ -165,7 +165,7 @@ class SearchComponent extends Component{
                             <Typography mt={2} variant="body2">Item 99 Paragraph 2; Page J-32</Typography>
                             <Typography mt={1} variant="body2"><a href="https://nrc-publications.canada.ca/eng/view/ft/?id=381cca6e-62ab-4d03-9f02-1ea1db63fd53#page=148" target="_blank" rel="noopener noreferrer">Link</a></Typography>
                             <Card className={classes.root}>
-                                <CardActionArea>
+                                <CardActionArea href="https://nrc-publications.canada.ca/eng/view/ft/?id=381cca6e-62ab-4d03-9f02-1ea1db63fd53#page=148" target="_blank" rel="noopener noreferrer">
                                     <CardMedia
                                         className={classes.media}
                                         component="img"
@@ -199,7 +199,7 @@ class SearchComponent extends Component{
                             <Typography mt={2} variant="body2">Page C-1</Typography>
                             <Typography mt={1} variant="body2"><a href="https://nrc-publications.canada.ca/eng/view/ft/?id=cbd245df-bc91-4033-a538-fb20fcf536a1&dp=1&dsl=en#page=1131" target="_blank" rel="noopener noreferrer">Link</a></Typography>
                             <Card className={classes.root}>
-                                <CardActionArea>
+                                <CardActionArea href="https://nrc-publications.canada.ca/eng/view/ft/?id=cbd245df-bc91-4033-a538-fb20fcf536a1&dp=1&dsl=en#page=1131" target="_blank" rel="noopener noreferrer">
                                     <CardMedia
                                         className={classes.media}
                                         component="img"
