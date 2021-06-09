@@ -43,7 +43,7 @@ function AppHeader() {
                 </Box>
                 
                 <Typography variant="body1" color="inherit">
-                    <Link href="#">
+                    <Link href="#" color="secondary">
                         <AccountBoxIcon fontSize="large"/>
                     </Link>
                 </Typography>
