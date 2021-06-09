@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
-import { Box, Button, Grid, TextField, Typography } from  '@material-ui/core'
+import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Grid, TextField, Typography } from  '@material-ui/core'
 import FindInPageOutlinedIcon from '@material-ui/icons/FindInPageOutlined';
 import ClearAllIcon from '@material-ui/icons/ClearAll';
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
   },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
 }));
 
 class SearchComponent extends Component{
@@ -28,6 +32,8 @@ class SearchComponent extends Component{
         super(props)
         this.state = {
             open: false,
+            show_height_results: false,
+            show_img_results: false,
             show_results: "false",
             search_string: "test",
         }
@@ -38,7 +44,8 @@ class SearchComponent extends Component{
 
     handleSearchEvent = (event) => {
         event.preventDefault();
-        this.setState( { open: true, show_results: "true" });
+        
+        this.setState( { open: true, show_height_results: this.state.search_string.toLowerCase() == "height", show_img_results: this.state.search_string.toLowerCase() == "topographic amplification", show_results: "true" });
     };
 
     // getSearchResults = () => {
@@ -76,12 +83,12 @@ class SearchComponent extends Component{
                         />
                 </form>
                 {
-                    this.state.open &&
+                    (this.state.open && this.state.show_height_results) &&
                     <Box mt={1} component="div">
                         <Typography m={1} variant="h6">Results for "{this.state.search_string}"</Typography>
                         <Box m={1} p={1} border={1}>
                             <Grid
-                                justify="space-between" // Add it here :)
+                                justify="space-between"
                                 container 
                                 spacing={1}
                             >
@@ -102,7 +109,7 @@ class SearchComponent extends Component{
                         </Box>
                         <Box m={1} p={1} border={1}>
                             <Grid
-                                justify="space-between" // Add it here :)
+                                justify="space-between"
                                 container 
                                 spacing={1}
                             >
@@ -133,6 +140,95 @@ class SearchComponent extends Component{
                                 Clear
                             </Button>
                         </Box>
+                    </Box>
+                }
+                {
+                    (this.state.open && this.state.show_img_results) &&
+                    <Box mt={1} component="div">
+                        <Typography m={1} variant="h6">Results for "{this.state.search_string}"</Typography>
+                        <Box m={1} p={1} border={1}>
+                            <Grid
+                                justify="space-between"
+                                container 
+                                spacing={1}
+                            >
+                                <Grid item>
+                                    <Typography mt={2} variant="h5"><b>NBCC 2010</b></Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Button variant="outlined" color="primary">
+                                        Click if answer was useful
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                            <Typography mt={2} variant="body1"><b>Commentary J</b></Typography>
+                            <Typography mt={2} variant="body2">Item 99 Paragraph 2; Page J-32</Typography>
+                            <Typography mt={1} variant="body2"><a href="https://nrc-publications.canada.ca/eng/view/ft/?id=381cca6e-62ab-4d03-9f02-1ea1db63fd53#page=148" target="_blank" rel="noopener noreferrer">Link</a></Typography>
+                            <Card className={classes.root}>
+                                <CardActionArea>
+                                    <CardMedia
+                                        className={classes.media}
+                                        component="img"
+                                        image={process.env.PUBLIC_URL + "/results/NBCC 2010 Commentary J-32.png"}
+                                        title="NBCC 2010 Commentary J; Item 99 Paragraph 2"
+                                    />
+                                    <CardContent>
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                            Relevant Topics: site classification, geotechnical, building plan
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Box>
+                        <Box m={1} p={1} border={1}>
+                            <Grid
+                                justify="space-between"
+                                container 
+                                spacing={1}
+                            >
+                                <Grid item>
+                                    <Typography mt={2} variant="h5"><b>NBCC 2010</b></Typography>
+                                </Grid>
+                                <Grid item>
+                                    <Button variant="outlined" color="primary">
+                                        Click if answer was useful
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                            <Typography mt={2} variant="body1"><b>Division B Appendix C</b></Typography>
+                            <Typography mt={2} variant="body2">Page C-1</Typography>
+                            <Typography mt={1} variant="body2"><a href="https://nrc-publications.canada.ca/eng/view/ft/?id=cbd245df-bc91-4033-a538-fb20fcf536a1&dp=1&dsl=en#page=1131" target="_blank" rel="noopener noreferrer">Link</a></Typography>
+                            <Card className={classes.root}>
+                                <CardActionArea>
+                                    <CardMedia
+                                        className={classes.media}
+                                        component="img"
+                                        image={process.env.PUBLIC_URL + "/results/NBCC 2010 Division B Appendix C-1.png"}
+                                        title="NBCC 2010 Commentary J; Item 99 Paragraph 2"
+                                    />
+                                    <CardContent>
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                            Relevant Topics: seismic, topography, climate
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Box>
+                        <Box mt={2} mr={1}>
+                            <Button variant="contained" color="primary"
+                            startIcon={<ClearAllIcon />}
+                            onClick={this.clearResults}
+                            color="default"
+                            autofocus>
+                                Clear
+                            </Button>
+                        </Box>
+                    </Box>
+                }
+                {
+                    (this.state.open && this.state.show_height_results == false && this.state.show_img_results == false) &&
+                    <Box mt={1} component="div">
+                        <Typography m={1} variant="h6">No results found for "{this.state.search_string}"</Typography>
                     </Box>
                 }
             </div>

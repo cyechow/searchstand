@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: 0,
     backgroundColor: theme.palette.primary,
+    background : '#FFFFFF',
     alignItems: 'baseline',
   },
 }));

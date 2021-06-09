@@ -14,6 +14,8 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    width: '100%',
+    position: 'fixed',
     display: "flex",
     flexDirection: "column",
     justifyContent: "center"
@@ -32,9 +34,11 @@ function AppHeader() {
                         <img src={Logo} height={32} width={32} />
                     </Icon>
                 </Box>
-                <Typography variant="h6" color="inherit">
-                    SearchStand
-                </Typography>
+                <Box display='flex' flexGrow={1}>
+                    <Typography variant="h6" color="inherit">
+                        SearchStand
+                    </Typography>
+                </Box>
                 
                 <Typography variant="body1" color="inherit">
                     <AccountBoxIcon fontSize="large"/>
