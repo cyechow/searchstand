@@ -15,7 +15,8 @@ const theme = createMuiTheme({
       main: '#5B5B5B',
     },
     secondary:{
-      main: '#75A8FF'
+      //main: '#75A8FF'
+      main: '#FFFFFF'
     },
     contrastThreshold: 3,
     tonalOffset: 0.2,
@@ -29,6 +30,7 @@ const styles = theme => ({
       padding: theme.spacing(2),
     },
   },
+  appBarSpacer: theme.mixins.toolbar,
 });
 
 const App = ({ classes }) => (
@@ -39,6 +41,7 @@ const App = ({ classes }) => (
       <main className={classes.main}>
         <Home />
       </main>
+      <div className={classes.appBarSpacer} />
       <AppFooter />
     </Fragment>
   </ThemeProvider>

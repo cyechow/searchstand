@@ -69,7 +69,7 @@ class SearchComponent extends Component{
         const classes = useStyles;
 
         return (
-            <div className={classes.root} style={{marginTop: "2%"}}>
+            <div className={classes.root} height='100%' style={{marginTop: "2%"}}>
                 <form className={classes.form} onSubmit={this.handleSearchEvent}>
                     <TextField
                         id="search-input-field"
@@ -144,7 +144,7 @@ class SearchComponent extends Component{
                 }
                 {
                     (this.state.open && this.state.show_img_results) &&
-                    <Box mt={1} component="div">
+                    <Box mt={1} component="div" overflow="visible">
                         <Typography m={1} variant="h6">Results for "{this.state.search_string}"</Typography>
                         <Box m={1} p={1} border={1}>
                             <Grid
@@ -163,7 +163,6 @@ class SearchComponent extends Component{
                             </Grid>
                             <Typography mt={2} variant="body1"><b>Commentary J</b></Typography>
                             <Typography mt={2} variant="body2">Item 99 Paragraph 2; Page J-32</Typography>
-                            <Typography mt={1} variant="body2"><a href="https://nrc-publications.canada.ca/eng/view/ft/?id=381cca6e-62ab-4d03-9f02-1ea1db63fd53#page=148" target="_blank" rel="noopener noreferrer">Link</a></Typography>
                             <Card className={classes.root}>
                                 <CardActionArea href="https://nrc-publications.canada.ca/eng/view/ft/?id=381cca6e-62ab-4d03-9f02-1ea1db63fd53#page=148" target="_blank" rel="noopener noreferrer">
                                     <CardMedia
@@ -227,7 +226,7 @@ class SearchComponent extends Component{
                 }
                 {
                     (this.state.open && this.state.show_height_results == false && this.state.show_img_results == false) &&
-                    <Box mt={1} component="div">
+                    <Box mt={1} component="div" overflow="visible">
                         <Typography m={1} variant="h6">No results found for "{this.state.search_string}"</Typography>
                     </Box>
                 }
